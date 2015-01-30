@@ -1,42 +1,28 @@
 package in.co.mkube.downtown;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class Events_activity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_events_activity);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006699")));
 
-        TextView b=(TextView)findViewById(R.id.info_text);
-        CardView c=(CardView)findViewById(R.id.card_view);
-        c.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,Events_activity.class);
-                startActivity(i);
-            }
-        });
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_splash, menu);
+        getMenuInflater().inflate(R.menu.menu_events_activity, menu);
         return true;
     }
 
