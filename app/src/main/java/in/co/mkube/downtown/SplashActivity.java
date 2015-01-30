@@ -1,50 +1,42 @@
 package in.co.mkube.downtown;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.os.Handler;
 
-
-public class SplashActivity extends ActionBarActivity {
+/**
+ * Created by tarun on 30/1/15.
+ */
+public class SplashActivity extends Activity {
+    private static final int SPLASH_TIME = 2 * 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006699")));
 
-        TextView b=(TextView)findViewById(R.id.info_text);
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+
+                startActivity(intent);
+                overridePendingTransition(R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_top);
+                SplashActivity.this.finish();
+
+
+            }
+        }, SPLASH_TIME);
 
     }
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_splash, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void onBackPressed() {
+        this.finish();
+        super.onBackPressed();
     }
 }
