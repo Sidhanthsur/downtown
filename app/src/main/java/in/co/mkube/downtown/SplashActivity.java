@@ -1,5 +1,7 @@
 package in.co.mkube.downtown;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +19,8 @@ public class SplashActivity extends ActionBarActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006699")));
+
         TextView b=(TextView)findViewById(R.id.info_text);
 
     }
