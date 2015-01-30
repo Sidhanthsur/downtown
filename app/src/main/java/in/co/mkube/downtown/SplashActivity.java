@@ -27,7 +27,6 @@ public class SplashActivity extends Activity {
                 overridePendingTransition(R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_top);
                 SplashActivity.this.finish();
 
-
             }
         }, SPLASH_TIME);
 
