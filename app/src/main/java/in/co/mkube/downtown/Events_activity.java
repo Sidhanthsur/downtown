@@ -1,6 +1,7 @@
 package in.co.mkube.downtown;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -33,22 +36,33 @@ public class Events_activity extends ActionBarActivity {
     private String EventName = null;
     private String Desc = null;
 
-    public TextView tv1,tv2;
+    public TextView tv1, tv2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_activity);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006699")));
-
+        info = new HashMap<String, String>();
+        infolist = new ArrayList<HashMap<String, String>>();
         EventName = getIntent().getStringExtra("EventName");
         Desc = getIntent().getStringExtra("Desc");
 
-        tv1=(TextView)findViewById(R.id.info_text);
-        tv2=(TextView)findViewById(R.id.info_textdet);
+        tv1 = (TextView) findViewById(R.id.info_text);
+        tv2 = (TextView) findViewById(R.id.info_textdet);
+        tv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Events_activity.this,GroundOverlayActivity.class);
+                startActivity(intent);
 
+            }
+        });
         new GetEvent().execute();
     }
+
+    public HashMap<String, String> info;
+    public ArrayList<HashMap<String, String>> infolist;
 
     private class GetEvent extends AsyncTask<Void, Void, Void> {
 
@@ -68,7 +82,6 @@ public class Events_activity extends ActionBarActivity {
             // Creating service handler class instance
             ServiceHandler sh = new ServiceHandler();
 
-            HashMap<String,String> info = new HashMap<String,String>();
 
             // Making a request to url and getting response
             String jsonStr = sh.makeServiceCall(url, ServiceHandler.GET);
@@ -78,7 +91,7 @@ public class Events_activity extends ActionBarActivity {
             if (jsonStr != null) {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
-                    String eve="event";
+                    String eve = "event";
                     JSONArray event = jsonObj.getJSONArray(eve);
 
                     for (int i = 0; i < event.length(); i++) {
@@ -90,14 +103,12 @@ public class Events_activity extends ActionBarActivity {
                         String to = c.getString(TagTo);
                         String venue = c.getString(TagVenue);
 
-                        if(name.equals("God Speed")) {
-                            info.put(TagEventName,name);
-                            info.put(TagDate,date);
-                            info.put(TagFrom,from);
-                            info.put(TagTo,to);
-                            info.put(TagVenue,venue);
-                            break;
-                        }
+                        info.put(TagEventName, name);
+                        info.put(TagDate, date);
+                        info.put(TagFrom, from);
+                        info.put(TagTo, to);
+                        info.put(TagVenue, venue);
+                        infolist.add(info);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -115,7 +126,13 @@ public class Events_activity extends ActionBarActivity {
             // Dismiss the progress dialog
             if (mProgress.isShowing())
                 mProgress.dismiss();
-
+         tv1.setText(infolist.get(0).get(TagEventName));
+            String s1 = infolist.get(0).get(TagDate);
+            String s2 = infolist.get(0).get(TagFrom);
+            String s3 = infolist.get(0).get(TagTo);
+            String s4= infolist.get(0).get(TagVenue);
+            String s5= s1+"\n"+s2+" to "+s3+"\n"+s4;
+            tv1.setText(s5);
         }
     }
 }
