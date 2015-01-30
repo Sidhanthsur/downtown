@@ -1,5 +1,6 @@
 package in.co.mkube.downtown;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -10,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import org.json.JSONArray;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -22,14 +25,35 @@ public class MainActivity extends ActionBarActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#006699")));
 
         TextView b=(TextView)findViewById(R.id.info_text);
-        CardView c=(CardView)findViewById(R.id.card_view);
-        c.setOnClickListener(new View.OnClickListener() {
+        CardView c1=(CardView)findViewById(R.id.card_view);
+        CardView c2=(CardView)findViewById(R.id.card_view1);
+        CardView c3=(CardView)findViewById(R.id.card_view2);
+        c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MainActivity.this,Events_activity.class);
+                String name = ((TextView) findViewById(R.id.info_text)).getText().toString();
+                String desc = ((TextView)findViewById(R.id.info_textdet)).getText().toString();
+                Intent i = new Intent(MainActivity.this,Events_activity.class);
+                i.putExtra("EventName",name);
+                i.putExtra("Desc",desc);
                 startActivity(i);
             }
         });
+        c2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = ((TextView) findViewById(R.id.info_text1)).getText().toString();
+                //String desc = ((TextView)findViewById(R.id.info_textdet)).getText().toString();
+            }
+        });
+        c3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = ((TextView) findViewById(R.id.info_text2)).getText().toString();
+               // String desc = ((TextView)findViewById(R.id.info_textdet)).getText().toString();
+            }
+        });
+
     }
 
 
