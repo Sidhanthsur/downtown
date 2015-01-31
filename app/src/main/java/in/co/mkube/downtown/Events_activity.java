@@ -18,6 +18,7 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,7 +38,7 @@ public class Events_activity extends ActionBarActivity {
     private String EventName = null;
     private String Desc = null;
 
-    public TextView tv1, tv2;
+    public TextView tv[]=new TextView[10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +51,20 @@ public class Events_activity extends ActionBarActivity {
         Desc = getIntent().getStringExtra("Desc");
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Lato-Regular.ttf");
 
-        tv1 = (TextView) findViewById(R.id.info_text);
-        tv2 = (TextView) findViewById(R.id.info_textdet);
-        tv1.setTypeface(font);
-        tv2.setTypeface(font);
-        tv1.setOnClickListener(new View.OnClickListener() {
+        tv[0] = (TextView) findViewById(R.id.info_text);
+        tv[1] = (TextView) findViewById(R.id.info_textdet);
+        tv[2] = (TextView) findViewById(R.id.info_text1);
+        tv[3] = (TextView) findViewById(R.id.info_textdet1);
+        tv[4] = (TextView) findViewById(R.id.info_text2);
+        tv[5] = (TextView) findViewById(R.id.info_textdet2);
+        tv[6] = (TextView) findViewById(R.id.info_text3);
+        tv[7] = (TextView) findViewById(R.id.info_textdet3);
+        tv[8] = (TextView) findViewById(R.id.info_text4);
+        tv[9] = (TextView) findViewById(R.id.info_textdet4);
+
+        tv[1].setTypeface(font);
+        tv[2].setTypeface(font);
+        tv[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(Events_activity.this,GroundOverlayActivity.class);
@@ -95,8 +105,7 @@ public class Events_activity extends ActionBarActivity {
             if (jsonStr != null) {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
-                    String eve = "event";
-                    JSONArray event = jsonObj.getJSONArray(eve);
+                    JSONArray event = jsonObj.getJSONArray("event");
 
                     for (int i = 0; i < event.length(); i++) {
                         JSONObject c = event.getJSONObject(i);
@@ -113,6 +122,7 @@ public class Events_activity extends ActionBarActivity {
                         info.put(TagTo, to);
                         info.put(TagVenue, venue);
                         infolist.add(info);
+                        Log.d("QWERTY",infolist.get(i).get(TagEventName));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -130,13 +140,17 @@ public class Events_activity extends ActionBarActivity {
             // Dismiss the progress dialog
             if (mProgress.isShowing())
                 mProgress.dismiss();
-         tv1.setText(infolist.get(0).get(TagEventName));
-            String s1 = infolist.get(0).get(TagDate);
-            String s2 = infolist.get(0).get(TagFrom);
-            String s3 = infolist.get(0).get(TagTo);
-            String s4= infolist.get(0).get(TagVenue);
-            String s5= s1+"\n"+s2+" to "+s3+"\n"+s4;
-            tv1.setText(s5);
+            String s1,s2,s3,s4,s5;
+            for(int i=0;i<9;i+=2) {
+                tv[i].setText(infolist.get(i/2).get(TagEventName));
+                s1 = infolist.get(i/2).get(TagDate);
+                s2 = infolist.get(i/2).get(TagFrom);
+                s3 = infolist.get(i/2).get(TagTo);
+                s4 = infolist.get(i/2).get(TagVenue);
+                s5 = "\n" + s1 + "\n" + s2 + " to " + s3 + "\n" + s4;
+                Log.d("asd",infolist.get(3).get(TagEventName));
+                tv[i+1].setText(s5);
+            }
         }
     }
 }
