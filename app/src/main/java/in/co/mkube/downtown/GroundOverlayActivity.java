@@ -36,9 +36,12 @@ public class GroundOverlayActivity extends FragmentActivity
     LatLngBounds newarkBounds = new LatLngBounds(
             new LatLng(13.004484, 80.220226 ),       // South west corner
             new LatLng(13.015322, 80.241773));
+    private GroundOverlay mGroundOverlay;
+    private SeekBar mTransparencyBar;
 
     GoogleMap googleMap;
-    
+    MarkerOptions markerOptions;
+    LatLng latLng;
     public String s;
 
     @Override
