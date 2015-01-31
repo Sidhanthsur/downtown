@@ -51,7 +51,7 @@
                 android:padding="10dp"
                 android:textSize="23sp"
                 android:textColor="#ffffff"
-                android:elevation="5dp"
+
                 android:background="#006699"/>
             <TextView
                 android:id="@+id/info_textdet"
@@ -61,7 +61,7 @@
                 android:layout_marginTop="10dp"
                 android:paddingLeft="10dp"
                 android:textSize="20sp"
-                android:elevation="5dp"
+
                 android:layout_marginBottom="7dp"/>
 
 
@@ -74,6 +74,7 @@
             android:clickable="true"
             android:layout_width="match_parent"
 android:layout_below="@+id/card_view_events"
+            android:layout_marginTop="6dp"
             android:layout_height="wrap_content"
             android:paddingLeft="64dp"
             android:paddingTop="16dp"
@@ -90,7 +91,7 @@ android:layout_below="@+id/card_view_events"
                 android:padding="10dp"
                 android:textSize="23sp"
                 android:textColor="#ffffff"
-                android:elevation="5dp"
+
                 android:background="#006699" />
             <TextView
                 android:id="@+id/info_textdet1"
@@ -101,7 +102,7 @@ android:layout_below="@+id/card_view_events"
                 android:layout_marginBottom="7dp"
                 android:textSize="20sp"
                 android:layout_marginTop="10dp"
-                android:elevation="5dp" />
+                 />
 
 
 
@@ -114,6 +115,7 @@ android:layout_below="@+id/card_view_events"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_below="@+id/card_view_events1"
+            android:layout_marginTop="6dp"
             android:layout_height="wrap_content"
             android:paddingLeft="64dp"
             android:paddingTop="16dp"
@@ -131,7 +133,7 @@ android:layout_below="@+id/card_view_events"
                 android:padding="10dp"
                 android:textSize="23sp"
                 android:textColor="#ffffff"
-                android:elevation="5dp"
+
                 android:background="#006699"/>
             <TextView
                 android:id="@+id/info_textdet2"
@@ -142,7 +144,7 @@ android:layout_below="@+id/card_view_events"
                 android:textSize="20sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="7dp"
-                android:elevation="5dp" />
+              />
 
 
 
@@ -154,6 +156,7 @@ android:layout_below="@+id/card_view_events"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_below="@+id/card_view_events2"
+            android:layout_marginTop="6dp"
             android:layout_height="wrap_content"
             android:paddingLeft="64dp"
             android:paddingTop="16dp"
@@ -172,7 +175,7 @@ android:layout_below="@+id/card_view_events"
                 android:textSize="23sp"
                 android:textColor="#ffffff"
                 android:background="#006699"
-                android:elevation="5dp" />
+              />
             <TextView
                 android:id="@+id/info_textdet3"
                 android:layout_width="match_parent"
@@ -182,7 +185,7 @@ android:layout_below="@+id/card_view_events"
                 android:layout_marginBottom="7dp"
                 android:paddingLeft="10dp"
                 android:textSize="20sp"
-                android:elevation="5dp" />
+              />
 
 
 
@@ -195,6 +198,7 @@ android:layout_below="@+id/card_view_events"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_below="@+id/card_view_events3"
+            android:layout_marginTop="6dp"
             android:layout_height="wrap_content"
             android:paddingLeft="64dp"
             android:paddingTop="16dp"
@@ -213,7 +217,7 @@ android:layout_below="@+id/card_view_events"
                 android:background="#006699"
                 android:textSize="23sp"
                 android:textColor="#ffffff"
-                android:elevation="5dp" />
+              />
             <TextView
                 android:id="@+id/info_textdet4"
                 android:layout_width="match_parent"
@@ -223,7 +227,7 @@ android:layout_below="@+id/card_view_events"
                 android:textSize="20sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="7dp"
-                android:elevation="5dp" />
+              />
 
 
 
