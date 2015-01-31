@@ -3,6 +3,7 @@ package in.co.mkube.downtown;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
@@ -47,9 +48,12 @@ public class Events_activity extends ActionBarActivity {
         infolist = new ArrayList<HashMap<String, String>>();
         EventName = getIntent().getStringExtra("EventName");
         Desc = getIntent().getStringExtra("Desc");
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Lato-Regular.ttf");
 
         tv1 = (TextView) findViewById(R.id.info_text);
         tv2 = (TextView) findViewById(R.id.info_textdet);
+        tv1.setTypeface(font);
+        tv2.setTypeface(font);
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
