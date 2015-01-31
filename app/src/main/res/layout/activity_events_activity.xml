@@ -63,7 +63,15 @@
                 android:textSize="20sp"
 
                 android:layout_marginBottom="7dp"/>
-
+            <ImageButton
+                android:id="@+id/searchImageButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/map1" />
 
 
         </android.support.v7.widget.CardView>
@@ -74,7 +82,7 @@
             android:clickable="true"
             android:layout_width="match_parent"
 android:layout_below="@+id/card_view_events"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:layout_height="wrap_content"
             android:paddingLeft="64dp"
             android:paddingTop="16dp"
@@ -103,6 +111,15 @@ android:layout_below="@+id/card_view_events"
                 android:textSize="20sp"
                 android:layout_marginTop="10dp"
                  />
+            <ImageButton
+                android:id="@+id/searchImageButton2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/map1" />
 
 
 
@@ -115,7 +132,7 @@ android:layout_below="@+id/card_view_events"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_below="@+id/card_view_events1"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:layout_height="wrap_content"
             android:paddingLeft="64dp"
             android:paddingTop="16dp"
@@ -145,7 +162,15 @@ android:layout_below="@+id/card_view_events"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="7dp"
               />
-
+            <ImageButton
+                android:id="@+id/searchImageButton3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/map1" />
 
 
         </android.support.v7.widget.CardView>
@@ -156,7 +181,7 @@ android:layout_below="@+id/card_view_events"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_below="@+id/card_view_events2"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:layout_height="wrap_content"
             android:paddingLeft="64dp"
             android:paddingTop="16dp"
@@ -188,7 +213,15 @@ android:layout_below="@+id/card_view_events"
               />
 
 
-
+            <ImageButton
+                android:id="@+id/searchImageButton4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/map1" />
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
@@ -198,7 +231,7 @@ android:layout_below="@+id/card_view_events"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_below="@+id/card_view_events3"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:layout_height="wrap_content"
             android:paddingLeft="64dp"
             android:paddingTop="16dp"
@@ -229,7 +262,15 @@ android:layout_below="@+id/card_view_events"
                 android:layout_marginBottom="7dp"
               />
 
-
+            <ImageButton
+                android:id="@+id/searchImageButton5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/map1" />
 
         </android.support.v7.widget.CardView>
 

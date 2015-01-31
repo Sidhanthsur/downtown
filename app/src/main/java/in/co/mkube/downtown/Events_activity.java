@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,8 +45,10 @@ public class Events_activity extends ActionBarActivity implements View.OnClickLi
     public int textv[]={R.id.info_text,R.id.info_textdet,R.id.info_text1,R.id.info_textdet1,R.id.info_text2,R.id.info_textdet2,R.id.info_text3,R.id.info_textdet3,R.id.info_text4,R.id.info_textdet4};
     public int cardtv[]={R.id.card_view_events,R.id.card_view_events1,R.id.card_view_events2,R.id.card_view_events3,R.id.card_view_events4};
     public TextView tv[];
+    public int buttons[]={R.id.searchImageButton,R.id.searchImageButton2,R.id.searchImageButton3,R.id.searchImageButton4,R.id.searchImageButton5};
     private TextView tv1;
     public CardView cv[];
+    public ImageButton but[];
     private RelativeLayout rl;
     int i=0;
 
@@ -60,75 +64,60 @@ public class Events_activity extends ActionBarActivity implements View.OnClickLi
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Lato-Regular.ttf");
         tv=new TextView[10];
         cv=new CardView[5];
-
+        but= new ImageButton[5];
         tv1=(TextView) findViewById(R.id.textview);
         tv1.setText("Events at "+EventName);
         rl=(RelativeLayout)findViewById(R.id.relativelayout);
 
-        for(i=0;i<5;i++) {
-            cv[i]=(CardView)findViewById(cv[i]);
-        }
 
         for(i=0;i<10;i++)
         {
             tv[i]=(TextView)findViewById(textv[i]);
             tv[i].setTypeface(font);
-            tv[i].setOnClickListener(this);
+
         }
+        for(int i=0;i<5;i++)
+        {
+            but[i]=(ImageButton)findViewById(buttons[i]);
+            but[i].setOnClickListener(this);
+        }
+
+
         new GetEvent().execute();
     }
 
     public HashMap<String, String> info;
     public ArrayList<HashMap<String, String>> infolist;
-public String s;
+    public String s;
     @Override
     public void onClick(View v) {
         Intent intent=new Intent(Events_activity.this,GroundOverlayActivity.class);
         switch(v.getId())
         {
-            case R.id.info_text:
+            case R.id.searchImageButton:
                 s="one";
                 intent.putExtra("card num",s);
                 break;
-            case R.id.info_text1:
+            case R.id.searchImageButton2:
                 s="two";
                 intent.putExtra("card num",s);
                 break;
-            case R.id.info_text2:
+            case R.id.searchImageButton3:
                 s="three";
                 intent.putExtra("card num",s);
                 break;
-            case R.id.info_text3:
+            case R.id.searchImageButton4:
                 s="four";
                 intent.putExtra("card num",s);
                 break;
-            case R.id.info_text4:
+            case R.id.searchImageButton5:
                 s="five";
                 intent.putExtra("card num",s);
                 break;
 
-            case R.id.info_textdet:
-                s="one";   intent.putExtra("card num",s);
-                break;
-            case R.id.info_textdet1:
-                s="two";
-                intent.putExtra("card num",s);
-                break;
-            case R.id.info_textdet2:
-                s="three";
-                intent.putExtra("card num",s);
-                break;
-            case R.id.info_textdet3:
-                s="four";
-                intent.putExtra("card num",s);
-                break;
-            case R.id.info_textdet4:
-                s="five";
-                intent.putExtra("card num",s);
-                break;
-         }
+        }
 
-           startActivity(intent);
+        startActivity(intent);
 
     }
 
@@ -197,7 +186,7 @@ public String s;
                 mProgress.dismiss();
             String s1,s2,s3,s4,s5;
             for(int i=0;i<10;i+=2) {
-              int  j=i/2;
+                int  j=i/2;
                 tv[i].setText(infolist.get(j).get(TagEventName));
                 s1 = infolist.get(j).get(TagDate);
                 s2 = infolist.get(j).get(TagFrom);
@@ -207,11 +196,11 @@ public String s;
                 Log.d("asd",s5);
                 tv[i+1].setText(s5);
             }
-            tv[1].setText("\nJan 31\n 9:00 a.m\n Venue: EG Hall 30");
+            tv[1].setText("\nJan 31\n 9:00 a.m\n Venue: EG 30");
             tv[2].setText("StartupWeekend");
             tv[3].setText("\nJan 31\n 9:00 a.m\n Venue: Hall of 1960");
-            tv[4].setText("Bio-mimi cry");
-            tv[5].setText("\nJan 31\n 10:00 a.m\n Venue: EG Hall");
+            tv[4].setText("Bio-mimicry");
+            tv[5].setText("\nJan 31\n 10:00 a.m\n Venue: EG 49");
             tv[6].setText("Reverse Engineering");
             tv[7].setText("\nJan 31\n 11:00 a.m\n Venue: Henry Maudsel Hall");
             tv[8].setText("Ez-System");
