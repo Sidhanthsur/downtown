@@ -3,13 +3,12 @@
     android:layout_height="match_parent" >
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-        android:layout_height="fill_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_height="wrap_content" android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:background="#f2f2f2"
-        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".SplashActivity"
-        android:id="@+id/relativelayout">
-
+        android:id="@+id/relativelayout"
+        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".SplashActivity">
 
 
 
@@ -19,6 +18,11 @@
              android:clickable="true"
              xmlns:card_view="http://schemas.android.com/apk/res-auto" > -->
 
+        <TextView
+            android:id="@+id/textview"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="20dp"/>
 
         <!-- A CardView that contains a TextView -->
         <android.support.v7.widget.CardView
@@ -34,6 +38,9 @@
             android:paddingRight="64dp"
             android:paddingBottom="16dp"
 
+            android:layout_below="@id/textview"
+            android:layout_marginTop="6dp"
+            android:focusable="true"
             card_view:cardCornerRadius="4dp"
             android:elevation="2dp"
             >
@@ -42,17 +49,21 @@
                 android:id="@+id/info_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:textSize="28sp"
-                android:elevation="5dp"/>
+                android:padding="10dp"
+                android:textSize="23sp"
+                android:textColor="#ffffff"
+                android:elevation="5dp"
+                android:background="#006699"/>
             <TextView
                 android:id="@+id/info_textdet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="30dp"
+                android:layout_marginTop="10dp"
                 android:paddingLeft="10dp"
                 android:textSize="20sp"
-                android:elevation="5dp" />
+                android:elevation="5dp"
+                android:layout_marginBottom="7dp"/>
 
 
 
@@ -78,16 +89,20 @@ android:layout_below="@+id/card_view_events"
                 android:id="@+id/info_text1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:textSize="28sp"
-                android:elevation="5dp" />
+                android:padding="10dp"
+                android:textSize="23sp"
+                android:textColor="#ffffff"
+                android:elevation="5dp"
+                android:background="#006699" />
             <TextView
                 android:id="@+id/info_textdet1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="30dp"
                 android:paddingLeft="10dp"
+                android:layout_marginBottom="7dp"
                 android:textSize="20sp"
+                android:layout_marginTop="10dp"
                 android:elevation="5dp" />
 
 
@@ -115,9 +130,11 @@ android:layout_below="@+id/card_view_events"
                 android:id="@+id/info_text2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:textSize="28sp"
-                android:elevation="5dp" />
+                android:padding="10dp"
+                android:textSize="23sp"
+                android:textColor="#ffffff"
+                android:elevation="5dp"
+                android:background="#006699"/>
             <TextView
                 android:id="@+id/info_textdet2"
                 android:layout_width="match_parent"
@@ -125,6 +142,8 @@ android:layout_below="@+id/card_view_events"
                 android:paddingTop="30dp"
                 android:paddingLeft="10dp"
                 android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="7dp"
                 android:elevation="5dp" />
 
 
@@ -151,14 +170,18 @@ android:layout_below="@+id/card_view_events"
                 android:id="@+id/info_text3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:textSize="28sp"
+                android:padding="10dp"
+                android:textSize="23sp"
+                android:textColor="#ffffff"
+                android:background="#006699"
                 android:elevation="5dp" />
             <TextView
                 android:id="@+id/info_textdet3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="7dp"
                 android:paddingLeft="10dp"
                 android:textSize="20sp"
                 android:elevation="5dp" />
@@ -188,8 +211,10 @@ android:layout_below="@+id/card_view_events"
                 android:id="@+id/info_text4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:textSize="28sp"
+                android:padding="10dp"
+                android:background="#006699"
+                android:textSize="23sp"
+                android:textColor="#ffffff"
                 android:elevation="5dp" />
             <TextView
                 android:id="@+id/info_textdet4"
@@ -198,6 +223,8 @@ android:layout_below="@+id/card_view_events"
                 android:paddingTop="30dp"
                 android:paddingLeft="10dp"
                 android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="7dp"
                 android:elevation="5dp" />
 
 

@@ -8,10 +8,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +41,8 @@ public class Events_activity extends ActionBarActivity {
     private String Desc = null;
 
     public TextView tv[]=new TextView[10];
+    private TextView tv1;
+    private RelativeLayout rl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,11 @@ public class Events_activity extends ActionBarActivity {
         EventName = getIntent().getStringExtra("EventName");
         Desc = getIntent().getStringExtra("Desc");
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Lato-Regular.ttf");
+
+        rl = (RelativeLayout) findViewById(R.id.relativelayout);
+
+        tv1 = (TextView) findViewById(R.id.textview);
+        tv1.setText("Todays's events at "+ EventName);
 
         tv[0] = (TextView) findViewById(R.id.info_text);
         tv[1] = (TextView) findViewById(R.id.info_textdet);
@@ -64,10 +73,12 @@ public class Events_activity extends ActionBarActivity {
 
         tv[1].setTypeface(font);
         tv[2].setTypeface(font);
-        tv[1].setOnClickListener(new View.OnClickListener() {
+
+        CardView c1 = (CardView)findViewById(R.id.card_view_events);
+        c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Events_activity.this,GroundOverlayActivity.class);
+                Intent intent = new Intent(Events_activity.this, GroundOverlayActivity.class);
                 startActivity(intent);
 
             }
@@ -84,6 +95,7 @@ public class Events_activity extends ActionBarActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             // Showing progress dialog
+            rl.setVisibility(View.INVISIBLE);
             mProgress = new ProgressDialog(Events_activity.this);
             mProgress.setMessage("Please wait...");
             mProgress.setCancelable(false);
@@ -138,16 +150,17 @@ public class Events_activity extends ActionBarActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             // Dismiss the progress dialog
+            rl.setVisibility(View.VISIBLE);
             if (mProgress.isShowing())
                 mProgress.dismiss();
             String s1,s2,s3,s4,s5;
             for(int i=0;i<9;i+=2) {
-                tv[i].setText(infolist.get(i/2).get(TagEventName));
+                tv[i].setText(">  "+infolist.get(i/2).get(TagEventName));
                 s1 = infolist.get(i/2).get(TagDate);
                 s2 = infolist.get(i/2).get(TagFrom);
                 s3 = infolist.get(i/2).get(TagTo);
                 s4 = infolist.get(i/2).get(TagVenue);
-                s5 = "\n" + s1 + "\n" + s2 + " to " + s3 + "\n" + s4;
+                s5 = "\n Date: " + s1 + "\n Time: " + s2 + " to " + s3 + "\n Venue: " + s4;
                 Log.d("asd",infolist.get(3).get(TagEventName));
                 tv[i+1].setText(s5);
             }
