@@ -62,13 +62,10 @@ public class GroundOverlayActivity extends FragmentActivity
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(13.012071, 80.235851), 16));
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
       if(s.equals("one")) map.addMarker(new MarkerOptions().position(new LatLng(13.011222, 80.236031)).title("EG 30"));
-          else if (s.equals("two")) map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Main Gallery"));
-          else if  (s.equals("three"))  map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Henry Maudslay Hall"));
-            else if(s.equals("four")) map.addMarker(new MarkerOptions().position(new LatLng(13.011222, 80.236031)).title("EG 30"));
-         else  map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Henry Maudslay Hall"));
-
-        map.addMarker(new MarkerOptions().position(new LatLng(13.011139, 80.236381)).title("Food Court"));
-
+          else if (s.equals("two")) map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Hall of 1960"));
+          else if  (s.equals("three"))  map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("EG Hall 49"));
+            else if(s.equals("four")) map.addMarker(new MarkerOptions().position(new LatLng(13.011222, 80.236031)).title("Henry Maudslay Hall"));
+         else  map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Main Gallery"));
 
         mImages.clear();
         mImages.add(BitmapDescriptorFactory.fromResource(R.drawable.map));

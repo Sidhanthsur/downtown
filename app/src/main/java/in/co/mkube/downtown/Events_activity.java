@@ -8,10 +8,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,7 +41,13 @@ public class Events_activity extends ActionBarActivity implements View.OnClickLi
     private String Desc = null;
 
     public int textv[]={R.id.info_text,R.id.info_textdet,R.id.info_text1,R.id.info_textdet1,R.id.info_text2,R.id.info_textdet2,R.id.info_text3,R.id.info_textdet3,R.id.info_text4,R.id.info_textdet4};
+    public int cardtv[]={R.id.card_view_events,R.id.card_view_events1,R.id.card_view_events2,R.id.card_view_events3,R.id.card_view_events4};
     public TextView tv[];
+    private TextView tv1;
+    public CardView cv[];
+    private RelativeLayout rl;
+    int i=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +59,17 @@ public class Events_activity extends ActionBarActivity implements View.OnClickLi
         Desc = getIntent().getStringExtra("Desc");
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Lato-Regular.ttf");
         tv=new TextView[10];
-        for(int i=0;i<10;i++)
+        cv=new CardView[5];
+
+        tv1=(TextView) findViewById(R.id.textview);
+        tv1.setText("Events at "+EventName);
+        rl=(RelativeLayout)findViewById(R.id.relativelayout);
+
+        for(i=0;i<5;i++) {
+            cv[i]=(CardView)findViewById(cv[i]);
+        }
+
+        for(i=0;i<10;i++)
         {
             tv[i]=(TextView)findViewById(textv[i]);
             tv[i].setTypeface(font);
@@ -124,7 +142,7 @@ public String s;
             mProgress.setMessage("Please wait...");
             mProgress.setCancelable(false);
             mProgress.show();
-
+            rl.setVisibility(View.INVISIBLE);
         }
 
         @Override
@@ -174,6 +192,7 @@ public String s;
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             // Dismiss the progress dialog
+            rl.setVisibility(View.VISIBLE);
             if (mProgress.isShowing())
                 mProgress.dismiss();
             String s1,s2,s3,s4,s5;
@@ -188,6 +207,16 @@ public String s;
                 Log.d("asd",s5);
                 tv[i+1].setText(s5);
             }
+            tv[1].setText("\nJan 31\n 9:00 a.m\n Venue: EG Hall 30");
+            tv[2].setText("StartupWeekend");
+            tv[3].setText("\nJan 31\n 9:00 a.m\n Venue: Hall of 1960");
+            tv[4].setText("Bio-mimi cry");
+            tv[5].setText("\nJan 31\n 10:00 a.m\n Venue: EG Hall");
+            tv[6].setText("Reverse Engineering");
+            tv[7].setText("\nJan 31\n 11:00 a.m\n Venue: Henry Maudsel Hall");
+            tv[8].setText("Ez-System");
+            tv[9].setText("\nJan 31\n 9:00 a.m\n Venue: Main Gallery");
+
         }
     }
 }

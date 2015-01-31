@@ -27,7 +27,6 @@ public class MainActivity extends ActionBarActivity {
         TextView b=(TextView)findViewById(R.id.info_text);
         CardView c1=(CardView)findViewById(R.id.card_view);
         CardView c2=(CardView)findViewById(R.id.card_view1);
-        CardView c3=(CardView)findViewById(R.id.card_view2);
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,13 +43,6 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 String name = ((TextView) findViewById(R.id.info_text1)).getText().toString();
                 //String desc = ((TextView)findViewById(R.id.info_textdet)).getText().toString();
-            }
-        });
-        c3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = ((TextView) findViewById(R.id.info_text2)).getText().toString();
-               // String desc = ((TextView)findViewById(R.id.info_textdet)).getText().toString();
             }
         });
 
