@@ -64,8 +64,8 @@ public class GroundOverlayActivity extends FragmentActivity
       if(s.equals("one")) map.addMarker(new MarkerOptions().position(new LatLng(13.011222, 80.236031)).title("EG 30"));
           else if (s.equals("two")) map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Main Gallery"));
           else if  (s.equals("three"))  map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Henry Maudslay Hall"));
-            else
-          map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Henry Maudslay Hall"));
+            else if(s.equals("four")) map.addMarker(new MarkerOptions().position(new LatLng(13.011222, 80.236031)).title("EG 30"));
+         else  map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Henry Maudslay Hall"));
 
         map.addMarker(new MarkerOptions().position(new LatLng(13.011139, 80.236381)).title("Food Court"));
 

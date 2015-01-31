@@ -65,26 +65,52 @@ public class Events_activity extends ActionBarActivity implements View.OnClickLi
 public String s;
     @Override
     public void onClick(View v) {
+        Intent intent=new Intent(Events_activity.this,GroundOverlayActivity.class);
         switch(v.getId())
         {
             case R.id.info_text:
                 s="one";
+                intent.putExtra("card num",s);
+                break;
+            case R.id.info_text1:
+                s="two";
+                intent.putExtra("card num",s);
                 break;
             case R.id.info_text2:
-                s="two";
+                s="three";
+                intent.putExtra("card num",s);
                 break;
             case R.id.info_text3:
-                s="three";
+                s="four";
+                intent.putExtra("card num",s);
                 break;
             case R.id.info_text4:
-                s="four";
+                s="five";
+                intent.putExtra("card num",s);
                 break;
 
+            case R.id.info_textdet:
+                s="one";   intent.putExtra("card num",s);
+                break;
+            case R.id.info_textdet1:
+                s="two";
+                intent.putExtra("card num",s);
+                break;
+            case R.id.info_textdet2:
+                s="three";
+                intent.putExtra("card num",s);
+                break;
+            case R.id.info_textdet3:
+                s="four";
+                intent.putExtra("card num",s);
+                break;
+            case R.id.info_textdet4:
+                s="five";
+                intent.putExtra("card num",s);
+                break;
+         }
 
-        }
-        Intent intent=new Intent(Events_activity.this,GroundOverlayActivity.class);
-        intent.putExtra("card num",s);
-        startActivity(intent);
+           startActivity(intent);
 
     }
 
