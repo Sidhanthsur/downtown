@@ -66,15 +66,17 @@ public class Events_activity extends ActionBarActivity implements View.OnClickLi
         rl=(RelativeLayout)findViewById(R.id.relativelayout);
 
         for(i=0;i<5;i++) {
-            cv[i]=(CardView)findViewById(cv[i]);
+            cv[i]=(CardView)findViewById(cardtv[i]);
+            cv[i].setOnClickListener(this);
         }
 
         for(i=0;i<10;i++)
         {
             tv[i]=(TextView)findViewById(textv[i]);
             tv[i].setTypeface(font);
-            tv[i].setOnClickListener(this);
+            //tv[i].setOnClickListener(this);
         }
+
         new GetEvent().execute();
     }
 
@@ -126,7 +128,27 @@ public String s;
                 s="five";
                 intent.putExtra("card num",s);
                 break;
-         }
+            case R.id.card_view_events:
+                s="one";
+                intent.putExtra("card num",s);
+                break;
+            case R.id.card_view_events1:
+                s="two";
+                intent.putExtra("card num",s);
+                break;
+            case R.id.card_view_events2:
+                s="three";
+                intent.putExtra("card num",s);
+                break;
+            case R.id.card_view_events3:
+                s="four";
+                intent.putExtra("card num",s);
+                break;
+            case R.id.card_view_events4:
+                s="five";
+                intent.putExtra("card num",s);
+                break;
+        }
 
            startActivity(intent);
 
