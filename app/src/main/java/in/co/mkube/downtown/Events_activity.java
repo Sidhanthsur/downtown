@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Events_activity extends ActionBarActivity {
+public class Events_activity extends ActionBarActivity implements View.OnClickListener{
 
     private ProgressDialog mProgress;
 
@@ -55,21 +55,38 @@ public class Events_activity extends ActionBarActivity {
         {
             tv[i]=(TextView)findViewById(textv[i]);
             tv[i].setTypeface(font);
+            tv[i].setOnClickListener(this);
         }
-
-        tv[1].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(Events_activity.this,GroundOverlayActivity.class);
-                startActivity(intent);
-
-            }
-        });
         new GetEvent().execute();
     }
 
     public HashMap<String, String> info;
     public ArrayList<HashMap<String, String>> infolist;
+public String s;
+    @Override
+    public void onClick(View v) {
+        switch(v.getId())
+        {
+            case R.id.info_text:
+                s="one";
+                break;
+            case R.id.info_text2:
+                s="two";
+                break;
+            case R.id.info_text3:
+                s="three";
+                break;
+            case R.id.info_text4:
+                s="four";
+                break;
+
+
+        }
+        Intent intent=new Intent(Events_activity.this,GroundOverlayActivity.class);
+        intent.putExtra("card num",s);
+        startActivity(intent);
+
+    }
 
     private class GetEvent extends AsyncTask<Void, Void, Void> {
 

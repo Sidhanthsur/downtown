@@ -1,5 +1,6 @@
 package in.co.mkube.downtown;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
@@ -35,32 +36,36 @@ public class GroundOverlayActivity extends FragmentActivity
     LatLngBounds newarkBounds = new LatLngBounds(
             new LatLng(13.004484, 80.220226 ),       // South west corner
             new LatLng(13.015322, 80.241773));
-    private GroundOverlay mGroundOverlay;
-    private SeekBar mTransparencyBar;
 
     GoogleMap googleMap;
-    MarkerOptions markerOptions;
-    LatLng latLng;
-
+    
+    public String s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ground_overlay);
-
+        Intent intent=getIntent();
+        s=intent.getStringExtra("card num");
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
          googleMap = mapFragment.getMap();
+
            }
 
     @Override
     public void onMapReady(GoogleMap map) {
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(13.012071, 80.235851), 16));
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        map.addMarker(new MarkerOptions().position(new LatLng(13.011222, 80.236031)).title("EG 30"));
-        map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Main Gallery"));
-        map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Henry Maudslay Hall"));
+      if(s.equals("one")) map.addMarker(new MarkerOptions().position(new LatLng(13.011222, 80.236031)).title("EG 30"));
+          else if (s.equals("two")) map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Main Gallery"));
+          else if  (s.equals("three"))  map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Henry Maudslay Hall"));
+            else
+          map.addMarker(new MarkerOptions().position(new LatLng(13.012239, 80.236829)).title("Henry Maudslay Hall"));
+
+        map.addMarker(new MarkerOptions().position(new LatLng(13.011139, 80.236381)).title("Food Court"));
+
 
         mImages.clear();
         mImages.add(BitmapDescriptorFactory.fromResource(R.drawable.map));
