@@ -75,6 +75,7 @@ public class Events_activity extends ActionBarActivity implements View.OnClickLi
             tv[i]=(TextView)findViewById(textv[i]);
             tv[i].setTypeface(font);
 
+
         }
         for(int i=0;i<5;i++)
         {
@@ -199,7 +200,7 @@ public class Events_activity extends ActionBarActivity implements View.OnClickLi
             tv[1].setText("\nJan 31\n 9:00 a.m\n Venue: EG 30");
             tv[2].setText("StartupWeekend");
             tv[3].setText("\nJan 31\n 9:00 a.m\n Venue: Hall of 1960");
-            tv[4].setText("Bio-mimicry");
+            tv[4].setText("Bio-mimi cry");
             tv[5].setText("\nJan 31\n 10:00 a.m\n Venue: EG 49");
             tv[6].setText("Reverse Engineering");
             tv[7].setText("\nJan 31\n 11:00 a.m\n Venue: Henry Maudsel Hall");
